@@ -12,6 +12,10 @@ app.use(cors());
 const connectionString = process.env.AZURE_COMMUNICATION_CONNECTION_STRING;
 const client = new CommunicationIdentityClient(connectionString);
 
+app.get('/', (req, res) => {
+  res.send('ACS Backend is running!');
+});
+
 app.get('/token', async (req, res) => {
   try {
     const user = await client.createUser();
