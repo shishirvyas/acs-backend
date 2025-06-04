@@ -7,7 +7,6 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3001;
 
-// CORS and ACS setup
 app.use(cors());
 
 const connectionString = process.env.AZURE_COMMUNICATION_CONNECTION_STRING;
@@ -27,7 +26,6 @@ app.get('/token', async (req, res) => {
   }
 });
 
-// Dynamically get hostname/IP
 app.listen(port, () => {
   const interfaces = os.networkInterfaces();
   let hostAddress = 'localhost';
